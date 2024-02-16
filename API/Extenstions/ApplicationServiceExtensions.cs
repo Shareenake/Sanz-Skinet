@@ -34,7 +34,13 @@ namespace API.Extensions
 //     return BadRequestObjectResult(errorResponse);
 //   };
 // });
-
+       services.AddCors(opt=>
+       {
+        opt.AddPolicy("CorsPolicy",policy=>
+        {
+          policy.AllowAnyOrigin().AllowAnyMethod().WithOrigins("http://localhost:4200");
+        });
+    });
         return services;
     }
     }
